@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Афина ❤</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="hearts" aria-hidden="true"></div>
+
+  <main class="layout">
+    <!-- Левая колонка с фото -->
+    <aside class="side side-left">
+      <img src="images/photo1.jpg" alt="" class="side-photo" onerror="this.classList.add('placeholder')" />
+      <img src="images/photo2.jpg" alt="" class="side-photo" onerror="this.classList.add('placeholder')" />
+      <img src="images/photo3.jpg" alt="" class="side-photo" onerror="this.classList.add('placeholder')" />
+    </aside>
+
+    <!-- Центр: опросник и финал -->
+    <section class="center">
+      <!-- Опросник -->
+      <div id="quiz" class="card">
+        <h1>Привет, любимая ❤</h1>
+        <p class="subtitle">Ответь на пару вопросов про нас</p>
+
+        <form id="quiz-form" class="quiz-form">
+          <div class="question">
+            <h3>1. Когда мы познакомились?</h3>
+            <label><input type="radio" name="q1" value="a" /> Весной</label>
+            <label><input type="radio" name="q1" value="b" /> Летом</label>
+            <label><input type="radio" name="q1" value="c" /> Осенью</label>
+            <label><input type="radio" name="q1" value="d" /> Зимой</label>
+          </div>
+
+          <div class="question">
+            <h3>2. Какое наше любимое место?</h3>
+            <label><input type="radio" name="q2" value="a" /> Кафе у дома</label>
+            <label><input type="radio" name="q2" value="b" /> Парк</label>
+            <label><input type="radio" name="q2" value="c" /> Дома на диване</label>
+            <label><input type="radio" name="q2" value="d" /> Кино</label>
+          </div>
+
+          <div class="question">
+            <h3>3. Что я люблю больше всего?</h3>
+            <label><input type="radio" name="q3" value="a" /> Твою улыбку</label>
+            <label><input type="radio" name="q3" value="b" /> Твои глаза</label>
+            <label><input type="radio" name="q3" value="c" /> Тебя целиком ❤</label>
+            <label><input type="radio" name="q3" value="d" /> Всё вместе</label>
+          </div>
+
+          <div class="question">
+            <h3>4. Сколько мы вместе?</h3>
+            <label><input type="radio" name="q4" value="a" /> Полгода</label>
+            <label><input type="radio" name="q4" value="b" /> Год</label>
+            <label><input type="radio" name="q4" value="c" /> Два года</label>
+            <label><input type="radio" name="q4" value="d" /> Целую вечность</label>
+          </div>
+
+          <button type="submit" class="btn">Ответить ❤</button>
+        </form>
+      </div>
+
+      <!-- Финал: появляется после опросника -->
+      <div id="final" class="card hidden">
+        <h1 class="big-title">Вместе уже год ❤</h1>
+        <p class="subtitle">И это только начало нашей истории</p>
+
+        <div class="gallery">
+          <img src="images/g1.jpg" alt="" onerror="this.classList.add('placeholder')" />
+          <img src="images/g2.jpg" alt="" onerror="this.classList.add('placeholder')" />
+          <img src="images/g3.jpg" alt="" onerror="this.classList.add('placeholder')" />
+          <img src="images/g4.jpg" alt="" onerror="this.classList.add('placeholder')" />
+          <img src="images/g5.jpg" alt="" onerror="this.classList.add('placeholder')" />
+          <img src="images/g6.jpg" alt="" onerror="this.classList.add('placeholder')" />
+        </div>
+
+        <p class="signature">Я тебя люблю ❤</p>
+      </div>
+    </section>
+
+    <!-- Правая колонка с фото -->
+    <aside class="side side-right">
+      <img src="images/photo4.jpg" alt="" class="side-photo" onerror="this.classList.add('placeholder')" />
+      <img src="images/photo5.jpg" alt="" class="side-photo" onerror="this.classList.add('placeholder')" />
+      <img src="images/photo6.jpg" alt="" class="side-photo" onerror="this.classList.add('placeholder')" />
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
