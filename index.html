@@ -12,18 +12,14 @@
   <!-- Оверлей с фото при неправильном ответе -->
   <div id="wrong-overlay" class="wrong-overlay hidden">
     <div class="wrong-overlay-content">
-      <img src="images/wrong.jpg" alt="" onerror="this.classList.add('placeholder')" />
+      <img id="wrong-photo" alt="" />
       <p class="wrong-text">Не угадала ❤ Попробуй ещё раз</p>
     </div>
   </div>
 
   <main class="layout">
-    <!-- Левая колонка с фото -->
-    <aside class="side side-left">
-      <img src="images/photo1.jpg" alt="" class="side-photo" onerror="this.classList.add('placeholder')" />
-      <img src="images/photo2.jpg" alt="" class="side-photo" onerror="this.classList.add('placeholder')" />
-      <img src="images/photo3.jpg" alt="" class="side-photo" onerror="this.classList.add('placeholder')" />
-    </aside>
+    <!-- Левая колонка с фото (заполняется из script.js) -->
+    <aside class="side side-left" id="side-left"></aside>
 
     <!-- Центр: опросник и финал -->
     <section class="center">
@@ -76,25 +72,14 @@
         <h1 class="big-title">Вместе уже год ❤</h1>
         <p class="subtitle">И это только начало нашей истории</p>
 
-        <div class="gallery">
-          <img src="images/g1.jpg" alt="" onerror="this.classList.add('placeholder')" />
-          <img src="images/g2.jpg" alt="" onerror="this.classList.add('placeholder')" />
-          <img src="images/g3.jpg" alt="" onerror="this.classList.add('placeholder')" />
-          <img src="images/g4.jpg" alt="" onerror="this.classList.add('placeholder')" />
-          <img src="images/g5.jpg" alt="" onerror="this.classList.add('placeholder')" />
-          <img src="images/g6.jpg" alt="" onerror="this.classList.add('placeholder')" />
-        </div>
+        <div class="gallery" id="gallery"></div>
 
         <p class="signature">Я тебя люблю ❤</p>
       </div>
     </section>
 
-    <!-- Правая колонка с фото -->
-    <aside class="side side-right">
-      <img src="images/photo4.jpg" alt="" class="side-photo" onerror="this.classList.add('placeholder')" />
-      <img src="images/photo5.jpg" alt="" class="side-photo" onerror="this.classList.add('placeholder')" />
-      <img src="images/photo6.jpg" alt="" class="side-photo" onerror="this.classList.add('placeholder')" />
-    </aside>
+    <!-- Правая колонка с фото (заполняется из script.js) -->
+    <aside class="side side-right" id="side-right"></aside>
   </main>
 
   <script src="script.js"></script>

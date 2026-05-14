@@ -1,3 +1,65 @@
+// ═══════════════════════════════════════════════════════════
+//   НАСТРОЙКИ ФОТО — меняйте только этот блок
+//   Можно вставлять любые ссылки (https://...) или пути (images/...)
+// ═══════════════════════════════════════════════════════════
+const PHOTOS = {
+  // Левая колонка (сколько угодно фото)
+  left: [
+    'images/photo1.jpg',
+    'images/photo2.jpg',
+    'images/photo3.jpg',
+  ],
+
+  // Правая колонка (сколько угодно фото)
+  right: [
+    'images/photo4.jpg',
+    'images/photo5.jpg',
+    'images/photo6.jpg',
+  ],
+
+  // Галерея в финале (сколько угодно фото)
+  gallery: [
+    'images/g1.jpg',
+    'images/g2.jpg',
+    'images/g3.jpg',
+    'images/g4.jpg',
+    'images/g5.jpg',
+    'images/g6.jpg',
+  ],
+
+  // Одно фото для оверлея при неправильном ответе
+  wrong: 'images/wrong.jpg',
+};
+// ═══════════════════════════════════════════════════════════
+
+// Заполняем фотографии из массивов
+function populatePhotos() {
+  fillContainer(document.getElementById('side-left'), PHOTOS.left, 'side-photo');
+  fillContainer(document.getElementById('side-right'), PHOTOS.right, 'side-photo');
+  fillContainer(document.getElementById('gallery'), PHOTOS.gallery);
+
+  const wrongPhoto = document.getElementById('wrong-photo');
+  wrongPhoto.src = PHOTOS.wrong;
+  wrongPhoto.onerror = () => wrongPhoto.classList.add('placeholder');
+}
+
+function fillContainer(container, urls, extraClass) {
+  if (!container) return;
+  container.innerHTML = '';
+
+  urls.forEach(url => {
+    const img = document.createElement('img');
+    img.src = url;
+    img.alt = '';
+    if (extraClass) img.classList.add(extraClass);
+    img.onerror = () => img.classList.add('placeholder');
+    container.appendChild(img);
+  });
+}
+
+populatePhotos();
+
+// ─── Логика опросника ──────────────────────────────────────
 const form = document.getElementById('quiz-form');
 const quizCard = document.getElementById('quiz');
 const finalCard = document.getElementById('final');
@@ -12,11 +74,9 @@ form.addEventListener('change', (e) => {
   const isCorrect = e.target.dataset.correct === 'true';
 
   if (!isCorrect) {
-    // Снимаем неправильный выбор, чтобы можно было выбрать снова
     const wrongInput = e.target;
     showWrongOverlay();
 
-    // Уберём выбор сразу, чтобы пользователь видел что нужно выбрать заново
     setTimeout(() => {
       wrongInput.checked = false;
     }, 100);
@@ -24,7 +84,6 @@ form.addEventListener('change', (e) => {
 });
 
 function showWrongOverlay() {
-  // Если уже показывается — сбросим таймер и покажем заново
   if (overlayTimer) {
     clearTimeout(overlayTimer);
     wrongOverlay.classList.remove('fade-out');
@@ -55,7 +114,6 @@ form.addEventListener('submit', (e) => {
     return;
   }
 
-  // Раз неправильные ответы автоматически снимаются, значит на этом этапе все выбранные = правильные
   quizCard.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
   quizCard.style.opacity = '0';
   quizCard.style.transform = 'scale(0.9)';
@@ -91,7 +149,6 @@ function launchConfetti() {
   }
 }
 
-// Добавляем CSS-анимацию падения сердечек
 const style = document.createElement('style');
 style.textContent = `
   @keyframes fall {
