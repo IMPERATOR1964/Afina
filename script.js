@@ -5,30 +5,30 @@
 const PHOTOS = {
   // Левая колонка (сколько угодно фото)
   left: [
-    'images/photo1.jpg',
-    'images/photo2.jpg',
-    'images/photo3.jpg',
+    'https://i.postimg.cc/q0kr0t1s/a5f44284-39a0-43a2-a257-df34c687335f.jpg',
+    'https://i.postimg.cc/nHDFs6ms/9a9baefc-a340-45b8-bbcc-88ad9578a10f.jpg',
+    'https://i.postimg.cc/YpWr4JFz/ecb2281c-c227-4cb3-b997-4614acf63616.jpg',
   ],
 
   // Правая колонка (сколько угодно фото)
   right: [
-    'images/photo4.jpg',
-    'images/photo5.jpg',
-    'images/photo6.jpg',
+    'https://i.postimg.cc/mTcRq08S/6fb33357-1072-4e11-90c5-7eb8c269d4be.jpg',
+    'https://i.postimg.cc/nHDFs6m4/bed71745-1b8a-41ae-81c2-0933bf0b3f44.jpg',
+    'https://i.postimg.cc/Y0VPrdfz/48e44012-38c8-4505-beed-40d30192dc9e.jpg',
   ],
 
   // Галерея в финале (сколько угодно фото)
   gallery: [
-    'images/g1.jpg',
-    'images/g2.jpg',
-    'images/g3.jpg',
-    'images/g4.jpg',
-    'images/g5.jpg',
-    'images/g6.jpg',
+    'https://i.postimg.cc/d1JPpN4q/7dd8d483-bac0-4af8-a007-e01042548122.jpg',
+    'https://i.postimg.cc/vMPJs0g8/f31adaaa-ef68-47bf-8a82-fe4fe82e84c8.jpg',
+    'https://i.postimg.cc/KZMGKdT3/44e7ca99-7fb7-458e-a45f-24a1755806cc.jpg',
+    'https://i.postimg.cc/HpyYJfM5/a9441a59-0b6b-4e1b-944e-b850f7f1fb66.jpg',
+    'https://i.postimg.cc/D2Lhf1VM/8bc605be-9bc7-4eec-990d-34b7685c9765.jpg',
+    'https://i.postimg.cc/F9ytXmcp/cd5a73c2-38c0-425e-bd5c-a8da93a56312.jpg',
   ],
 
   // Одно фото для оверлея при неправильном ответе
-  wrong: 'images/wrong.jpg',
+  wrong: 'https://i.postimg.cc/7hCBWg8x/de24ebec-7404-43ff-8b3e-f939a3a9c046.jpg',
 };
 // ═══════════════════════════════════════════════════════════
 
