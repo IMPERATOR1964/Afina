@@ -254,6 +254,81 @@ h1 {
   50%      { transform: scale(1.05); }
 }
 
+/* Оверлей при неправильном ответе */
+.wrong-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: overlayIn 0.3s ease;
+}
+
+.wrong-overlay.hidden {
+  display: none;
+}
+
+.wrong-overlay.fade-out {
+  animation: overlayOut 0.5s ease forwards;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes overlayOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+.wrong-overlay-content {
+  text-align: center;
+  animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.wrong-overlay-content img {
+  max-width: min(450px, 80vw);
+  max-height: 60vh;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(255, 107, 157, 0.5);
+  border: 4px solid var(--pink);
+  display: block;
+  margin: 0 auto;
+}
+
+.wrong-overlay-content img.placeholder {
+  width: 350px;
+  height: 350px;
+  background: linear-gradient(135deg, var(--pink) 0%, var(--rose) 100%);
+  position: relative;
+}
+
+.wrong-overlay-content img.placeholder::after {
+  content: '😅';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 100px;
+}
+
+.wrong-text {
+  margin-top: 20px;
+  font-size: 24px;
+  color: var(--pink-soft);
+  font-weight: 600;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
 /* Мобильная версия */
 @media (max-width: 900px) {
   .layout {

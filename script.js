@@ -1,12 +1,52 @@
-// Обработка отправки опросника
 const form = document.getElementById('quiz-form');
 const quizCard = document.getElementById('quiz');
 const finalCard = document.getElementById('final');
+const wrongOverlay = document.getElementById('wrong-overlay');
 
+let overlayTimer = null;
+
+// Проверка ответа при клике на вариант
+form.addEventListener('change', (e) => {
+  if (e.target.type !== 'radio') return;
+
+  const isCorrect = e.target.dataset.correct === 'true';
+
+  if (!isCorrect) {
+    // Снимаем неправильный выбор, чтобы можно было выбрать снова
+    const wrongInput = e.target;
+    showWrongOverlay();
+
+    // Уберём выбор сразу, чтобы пользователь видел что нужно выбрать заново
+    setTimeout(() => {
+      wrongInput.checked = false;
+    }, 100);
+  }
+});
+
+function showWrongOverlay() {
+  // Если уже показывается — сбросим таймер и покажем заново
+  if (overlayTimer) {
+    clearTimeout(overlayTimer);
+    wrongOverlay.classList.remove('fade-out');
+  }
+
+  wrongOverlay.classList.remove('hidden');
+
+  overlayTimer = setTimeout(() => {
+    wrongOverlay.classList.add('fade-out');
+
+    setTimeout(() => {
+      wrongOverlay.classList.add('hidden');
+      wrongOverlay.classList.remove('fade-out');
+      overlayTimer = null;
+    }, 500);
+  }, 4000);
+}
+
+// Отправка опросника
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  // Проверим что хотя бы один вариант выбран в каждом вопросе
   const questions = ['q1', 'q2', 'q3', 'q4'];
   const allAnswered = questions.every(q => form.querySelector(`input[name="${q}"]:checked`));
 
@@ -15,7 +55,7 @@ form.addEventListener('submit', (e) => {
     return;
   }
 
-  // Плавное скрытие опросника и показ финала
+  // Раз неправильные ответы автоматически снимаются, значит на этом этапе все выбранные = правильные
   quizCard.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
   quizCard.style.opacity = '0';
   quizCard.style.transform = 'scale(0.9)';
@@ -27,7 +67,7 @@ form.addEventListener('submit', (e) => {
   }, 500);
 });
 
-// Маленькая анимация "конфетти" из сердечек после прохождения
+// Анимация сердечек после прохождения
 function launchConfetti() {
   const colors = ['#ff6b9d', '#ff85a2', '#ffd700', '#ffd1dc'];
   const count = 60;
@@ -51,7 +91,7 @@ function launchConfetti() {
   }
 }
 
-// Добавляем CSS-анимацию падения сердечек динамически
+// Добавляем CSS-анимацию падения сердечек
 const style = document.createElement('style');
 style.textContent = `
   @keyframes fall {

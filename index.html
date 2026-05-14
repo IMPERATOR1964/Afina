@@ -9,6 +9,14 @@
 <body>
   <div class="hearts" aria-hidden="true"></div>
 
+  <!-- Оверлей с фото при неправильном ответе -->
+  <div id="wrong-overlay" class="wrong-overlay hidden">
+    <div class="wrong-overlay-content">
+      <img src="images/wrong.jpg" alt="" onerror="this.classList.add('placeholder')" />
+      <p class="wrong-text">Не угадала ❤ Попробуй ещё раз</p>
+    </div>
+  </div>
+
   <main class="layout">
     <!-- Левая колонка с фото -->
     <aside class="side side-left">
@@ -25,34 +33,36 @@
         <p class="subtitle">Ответь на пару вопросов про нас</p>
 
         <form id="quiz-form" class="quiz-form">
+          <!-- Правильный ответ помечается атрибутом data-correct="true" -->
           <div class="question">
             <h3>1. Когда мы познакомились?</h3>
             <label><input type="radio" name="q1" value="a" /> Весной</label>
             <label><input type="radio" name="q1" value="b" /> Летом</label>
             <label><input type="radio" name="q1" value="c" /> Осенью</label>
-            <label><input type="radio" name="q1" value="d" /> Зимой</label>
+            <label><input type="radio" name="q1" value="d" data-correct="true" /> Зимой</label>
           </div>
 
           <div class="question">
             <h3>2. Какое наше любимое место?</h3>
             <label><input type="radio" name="q2" value="a" /> Кафе у дома</label>
             <label><input type="radio" name="q2" value="b" /> Парк</label>
-            <label><input type="radio" name="q2" value="c" /> Дома на диване</label>
+            <label><input type="radio" name="q2" value="c" data-correct="true" /> Дома на диване</label>
             <label><input type="radio" name="q2" value="d" /> Кино</label>
           </div>
 
+          <!-- В этом вопросе все ответы правильные -->
           <div class="question">
             <h3>3. Что я люблю больше всего?</h3>
-            <label><input type="radio" name="q3" value="a" /> Твою улыбку</label>
-            <label><input type="radio" name="q3" value="b" /> Твои глаза</label>
-            <label><input type="radio" name="q3" value="c" /> Тебя целиком ❤</label>
-            <label><input type="radio" name="q3" value="d" /> Всё вместе</label>
+            <label><input type="radio" name="q3" value="a" data-correct="true" /> Твою улыбку</label>
+            <label><input type="radio" name="q3" value="b" data-correct="true" /> Твои глаза</label>
+            <label><input type="radio" name="q3" value="c" data-correct="true" /> Тебя целиком ❤</label>
+            <label><input type="radio" name="q3" value="d" data-correct="true" /> Всё вместе</label>
           </div>
 
           <div class="question">
             <h3>4. Сколько мы вместе?</h3>
             <label><input type="radio" name="q4" value="a" /> Полгода</label>
-            <label><input type="radio" name="q4" value="b" /> Год</label>
+            <label><input type="radio" name="q4" value="b" data-correct="true" /> Год</label>
             <label><input type="radio" name="q4" value="c" /> Два года</label>
             <label><input type="radio" name="q4" value="d" /> Целую вечность</label>
           </div>
